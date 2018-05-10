@@ -50,7 +50,11 @@
             dataType:'JSON',
             data: dataToSend,
             success: response => {
-                console.log('Server Response: ', response);
+                if(response.success){
+                    window.location.href='./profile.php';
+                }else{
+                    $('#auth-error').text(response.error)
+                }
             }
         })
     })
